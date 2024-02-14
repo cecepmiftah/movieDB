@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 export const Search = ({ placeholder }: { placeholder: string }) => {
@@ -10,8 +10,13 @@ export const Search = ({ placeholder }: { placeholder: string }) => {
   const { replace } = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams);
+    params.set("page", "1");
 
     if (term) {
       params.set("query", term);
@@ -29,7 +34,6 @@ export const Search = ({ placeholder }: { placeholder: string }) => {
         alt="search icon"
         width={24}
         height={24}
-        onClick={() => inputRef.current?.focus()}
       />
       <input
         type="text"

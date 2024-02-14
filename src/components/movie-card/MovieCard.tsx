@@ -16,12 +16,18 @@ export const MovieCard = ({
       <div className="">
         <div className="flex flex-col justify-center items-center p-2">
           <div className="relative w-60 h-[400px]">
-            <Image
-              src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-              alt={title}
-              fill
-              className="object-cover rounded-lg"
-            />
+            {poster_path ? (
+              <Image
+                src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                alt={title}
+                fill
+                className="object-cover rounded-lg"
+              />
+            ) : (
+              <p className="mt-24 text-center text-lg font-semibold">
+                Sorry Image Not Found😟
+              </p>
+            )}
             <div className="absolute flex items-center gap-1 top-2 left-2 py-3 px-2 rounded-lg bg-black bg-opacity-50 backdrop-filter backdrop-blur-md">
               <Image
                 src={"/assets/star.svg"}

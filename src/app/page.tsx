@@ -1,4 +1,6 @@
 import { List } from "@/components/list/List";
+import { Pagination } from "@/components/pagination/Pagination";
+import { Metadata } from "next";
 import { Suspense } from "react";
 
 async function getData(query: string, page: number) {
@@ -26,6 +28,11 @@ async function getData(query: string, page: number) {
   return res.json();
 }
 
+export const metadata: Metadata = {
+  title: "Movies",
+  description: "Search anything about movies you want to know",
+};
+
 export default async function Home({
   searchParams,
 }: {
@@ -37,8 +44,13 @@ export default async function Home({
   const data = await getData(query, currentPage);
 
   return (
-    <Suspense key={query + currentPage} fallback={<p>Loading...</p>}>
-      <List data={data} category="movie" title="Movies List" />
-    </Suspense>
+    <>
+      <Suspense key={query + currentPage} fallback={<p>Loading...</p>}>
+        <List data={data} category="movie" title="Movies List" />
+      </Suspense>
+      <div className="flex justify-center">
+        <Pagination totalPages={data.total_pages} />
+      </div>
+    </>
   );
 }
