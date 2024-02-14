@@ -12,6 +12,8 @@ export const Detail = ({
   vote_average,
   release_date,
   genres,
+  episode_run_time,
+  status,
 }: Movie) => {
   return (
     <div className="w-full flex flex-col justify-center items-center">
@@ -36,16 +38,20 @@ export const Detail = ({
         <div className="flex justify-center my-20">
           <div className="w-1/2">
             <div className="relative mx-auto w-96 h-[600px]">
-              <Image
-                src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-                alt={title}
-                fill
-                className="object-contain"
-              />
+              {poster_path && (
+                <Image
+                  src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                  alt={title}
+                  fill
+                  className="object-contain"
+                />
+              )}
             </div>
           </div>
           <div className="w-1/2 flex flex-col gap-6">
-            <h1 className="text-3xl font-bold">{title}</h1>
+            <h1 className="text-3xl font-bold">
+              {title ? title : original_name}
+            </h1>
             <p className="text-base text-gray-400 leading-9">{overview}</p>
             <div className="flex items-center w-16 gap-1 py-3 px-2 rounded-lg bg-black bg-opacity-50 backdrop-filter backdrop-blur-md">
               <Image
@@ -58,7 +64,9 @@ export const Detail = ({
             </div>
             <div>
               <p className="text-base leading-9 text-gray-400">Type</p>
-              <p className="text-base leading-9">Movie</p>
+              <p className="text-base leading-9">
+                {episode_run_time ? "TV Show" : "Movie"}
+              </p>
             </div>
             <div>
               <p className="text-base leading-9 text-gray-400">Release Date:</p>
@@ -73,6 +81,10 @@ export const Detail = ({
                   </p>
                 ))}
               </div>
+            </div>
+            <div>
+              <p className="text-base leading-9 text-gray-400">Status:</p>
+              <p className="text-base leading-9">{status}</p>
             </div>
           </div>
         </div>

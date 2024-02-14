@@ -20,6 +20,8 @@ export type Movie = {
   video?: boolean;
   vote_average?: number;
   vote_count?: number;
+  episode_run_time?: string;
+  status?: string;
 };
 
 export type MovieData = {

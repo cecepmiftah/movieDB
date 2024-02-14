@@ -4,7 +4,6 @@ import NavLink from "./link/NavLink";
 const links = [
   { name: "Movies", href: "/" },
   { name: "TV Show", href: "/tvshow" },
-  { name: "Suggest Me", href: "/suggest" },
 ];
 
 export default function Navbar() {
