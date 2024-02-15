@@ -18,7 +18,7 @@ export const Detail = ({
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <div>
-        <div className="relative w-[1200px] h-[80vh] aspect-auto">
+        <div className="hidden md:block relative md:w-[800px] md:h-[50vh] lg:w-[1200px] lg:h-[80vh] aspect-auto">
           <Image
             src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
             alt={title}
@@ -35,9 +35,9 @@ export const Detail = ({
         </div>
       </div>
       <div>
-        <div className="flex justify-center my-20">
-          <div className="w-1/2">
-            <div className="relative mx-auto w-96 h-[600px]">
+        <div className="flex flex-col gap-6 md:flex-row justify-center my-20">
+          <div className="md:w-1/2">
+            <div className="relative mx-auto md:w-80 lg:w-96 h-[600px]">
               {poster_path && (
                 <Image
                   src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
@@ -48,8 +48,8 @@ export const Detail = ({
               )}
             </div>
           </div>
-          <div className="w-1/2 flex flex-col gap-6">
-            <h1 className="text-3xl font-bold">
+          <div className="md:w-1/2 flex flex-col gap-6 mx-6 md:mx-0">
+            <h1 className="text-3xl font-bold self-center md:self-start">
               {title ? title : original_name}
             </h1>
             <p className="text-base text-gray-400 leading-9">{overview}</p>

@@ -6,8 +6,8 @@ import Link from "next/link";
 
 export const List = ({ data, title, category }: MovieData) => {
   return (
-    <div className="mt-10 max-w-[1366px] text-gray-300">
-      <div className="max-w-[50%]">
+    <div className="mt-10 sm:mx-6 lg:mx-0 max-w-[1366px] text-gray-300">
+      <div className="sm:max-w-[50%] mx-auto text-center sm:mx-0 sm:text-start">
         <h1 className="text-4xl font-bold">{title}</h1>
         <p className="text-base leading-6 mt-6">
           List of movies and TV Shows, I, Pramod Poudel have watched till date.
@@ -20,14 +20,16 @@ export const List = ({ data, title, category }: MovieData) => {
       <div className="mt-6">
         <Category />
       </div>
-      <div className="mt-6 grid grid-cols-4 gap-6">
-        {data.results.map((item: Movie) => {
-          return (
-            <Link href={`detail/${category}/${item.id}`} key={item.id}>
-              <MovieCard {...item} />
-            </Link>
-          );
-        })}
+      <div className="mt-6 grid gap-3 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-2 lg:grid-cols-4 lg:gap-6">
+        {data.results.map((item: Movie) => (
+          <Link
+            href={`detail/${category}/${item.id}`}
+            key={item.id}
+            className="mx-auto"
+          >
+            <MovieCard {...item} />
+          </Link>
+        ))}
       </div>
     </div>
   );

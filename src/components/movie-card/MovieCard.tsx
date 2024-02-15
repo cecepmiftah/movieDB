@@ -12,9 +12,9 @@ export const MovieCard = ({
   vote_count,
 }: Movie) => {
   return (
-    <div className="w-72 bg-[#20283E] bg-opacity-30 backdrop-filter backdrop-blur-md rounded-lg">
-      <div className="">
-        <div className="flex flex-col justify-center items-center p-2">
+    <div className="w-72 h-[512px] flex items-center bg-[#20283E] bg-opacity-30 backdrop-filter backdrop-blur-md rounded-lg">
+      <div className="mx-auto">
+        <div className="flex flex-col justify-center items-center gap-3 p-2">
           <div className="relative w-60 h-[400px]">
             {poster_path ? (
               <Image
@@ -38,7 +38,7 @@ export const MovieCard = ({
               <p className="text-[#FFAD49]">{vote_average?.toFixed(1)}</p>
             </div>
           </div>
-          <h1 className="self-start px-4 py-2 text-lg font-semibold text-gray-100">
+          <h1 className="self-start px-1 py-2 text-lg font-semibold text-gray-100">
             {title ? title : original_name}
           </h1>
         </div>

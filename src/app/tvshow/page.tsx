@@ -42,7 +42,6 @@ const page = async ({
   const currentPage = Number(searchParams?.page) || 1;
 
   const data = await getData(query, currentPage);
-  console.log(data);
 
   return (
     <>

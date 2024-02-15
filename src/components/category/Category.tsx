@@ -11,7 +11,7 @@ export const Category = () => {
   const pathname = usePathname();
 
   return (
-    <div className="max-w-72 bg-black bg-opacity-30 backdrop-filter backdrop-blur-md p-2 rounded">
+    <div className="max-w-72 bg-black bg-opacity-30 backdrop-filter backdrop-blur-md p-2 rounded mx-auto sm:mx-0">
       <div className="flex items-center gap-4 text-sm">
         {links.map((link) => (
           <Link

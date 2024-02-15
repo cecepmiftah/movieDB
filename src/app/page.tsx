@@ -1,5 +1,6 @@
 import { List } from "@/components/list/List";
 import { Pagination } from "@/components/pagination/Pagination";
+import { Skeletons } from "@/components/skeletons/Skeletons";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
@@ -45,7 +46,7 @@ export default async function Home({
 
   return (
     <>
-      <Suspense key={query + currentPage} fallback={<p>Loading...</p>}>
+      <Suspense key={query + currentPage} fallback={<Skeletons />}>
         <List data={data} category="movie" title="Movies List" />
       </Suspense>
       <div className="flex justify-center">

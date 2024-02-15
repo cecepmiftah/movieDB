@@ -47,8 +47,6 @@ const page = async ({
 }) => {
   const data = await getData({ id: params.id, category: params.category });
 
-  console.log(data);
-
   return (
     <div className="max-w-[1366px] text-gray-300">
       <Detail {...data} />
